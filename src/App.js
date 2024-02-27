@@ -15,11 +15,16 @@ import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetail from "./features/product/components/ProductDetail";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import Protected from "./features/auth/components/Protected";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: (
+      <Protected>
+        <Home></Home>
+      </Protected>
+    ),
   },
   {
     path: "/login",
@@ -32,15 +37,27 @@ const router = createBrowserRouter([
   {
     // only for testing - then page will be added
     path: "/cart",
-    element: <CartPage></CartPage>,
+    element: (
+      <Protected>
+        <CartPage></CartPage>
+      </Protected>
+    ),
   },
   {
     path: "/checkout",
-    element: <Checkout></Checkout>,
+    element: (
+      <CartPage>
+        <Checkout></Checkout>
+      </CartPage>
+    ),
   },
   {
     path: "/product-detail/:id",
-    element: <ProductDetailPage></ProductDetailPage>,
+    element: (
+      <Checkout>
+        <ProductDetailPage></ProductDetailPage>
+      </Checkout>
+    ),
   },
 ]);
 
@@ -53,3 +70,4 @@ function App() {
 }
 
 export default App;
+    

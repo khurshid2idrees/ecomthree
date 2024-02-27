@@ -2333,5 +2333,12 @@
       "label": "lighting",
       "checked": false
     }
+  ],
+  "users": [
+    {
+      "id": "6d51",
+      "email": "samosa@samosa.com",
+      "password": "Samosa@123#"
+    }
   ]
 }
